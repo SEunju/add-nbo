@@ -12,11 +12,18 @@ int main(int argc, char **argv) {
 	       printf("file open error\n");
 	       return -1;
 	}
+	int read_size = fread(&num1, 1, 4, fp1);
+	if (read_size != 4) {
+		printf("file1 size smaller than 4 bytes");
+		return -1;
+	}
+	/* my code
 	fread(&num1, sizeof(uint32_t), 1, fp1);
 	if (ftell(fp1) < 4) {
 		printf("file1 size smaller than 4 bytes");
 		return -1;
 	}
+	*/
 	fclose(fp1);
 
 
